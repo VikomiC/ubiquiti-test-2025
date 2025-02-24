@@ -1,8 +1,9 @@
 import { Provider as JotaiProvider } from 'jotai';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router';
 
-import { App } from '@/App.tsx';
+import { App } from '@/App';
 
 import './index.css';
 
@@ -12,9 +13,11 @@ if (container) {
   const root = createRoot(container);
   root.render(
     <StrictMode>
-      <JotaiProvider>
-        <App />
-      </JotaiProvider>
+      <BrowserRouter>
+        <JotaiProvider>
+          <App />
+        </JotaiProvider>
+      </BrowserRouter>
     </StrictMode>
   );
 }
