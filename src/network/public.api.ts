@@ -1,5 +1,5 @@
-import { config } from '../config.ts';
-import type { DevicesResponseI } from '../types/responses.ts';
+import { config } from '@/config.ts';
+import type { DevicesResponseI } from '@/types/responses.ts';
 
 export async function getAllDevices(): Promise<DevicesResponseI> {
   return fetch(config.devicesUrl, {
