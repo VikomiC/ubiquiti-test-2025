@@ -18,6 +18,6 @@ if (container) {
           <App />
         </JotaiProvider>
       </BrowserRouter>
-    </StrictMode>
+    </StrictMode>,
   );
 }

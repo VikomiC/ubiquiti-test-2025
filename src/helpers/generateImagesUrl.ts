@@ -8,6 +8,8 @@ interface ImagesUrlPropsI {
 
 export function generateImagesUrl(props: ImagesUrlPropsI) {
   const imagesUrl = config.imagesUrl;
-  Object.entries(props).forEach(([key, value]) => imagesUrl.replace(`$${key}`, value));
+  for (const [key, value] of Object.entries(props)) {
+    imagesUrl.replace(`$${key}`, value);
+  }
   return imagesUrl;
 }

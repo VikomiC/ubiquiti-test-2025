@@ -48,3 +48,17 @@ export default tseslint.config({
   },
 })
 ```
+
+```
+# format files
+npx @biomejs/biome format --write ./src
+
+# lint files and apply the safe fixes
+npx @biomejs/biome lint --write ./src
+
+# run format, lint, etc. and apply the safe fixes
+npx @biomejs/biome check --write ./src
+
+# check all files against format, lint, etc. in CI environments
+npx @biomejs/biome ci ./src
+```
