@@ -1,14 +1,8 @@
-import { config } from '@/config.ts';
-import type { DevicesResponseI } from '@/types/responses.ts';
+import { config } from '@/config';
+import type { DevicesResponseI } from '@/types/responses';
 
 export async function getAllDevices(): Promise<DevicesResponseI> {
-  return fetch(config.devicesUrl, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-    },
-  }).then(async (response: Response) => {
+  return fetch(config.devicesUrl).then((response: Response) => {
     if (response.status === 200) {
       return response.json();
     }

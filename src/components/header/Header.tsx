@@ -1,5 +1,6 @@
+import { HeaderLogo } from '@/components/header-logo/HeaderLogo';
+
 import styles from './Header.module.scss';
-import { HeaderLogo } from '@/components/header-logo/HeaderLogo.tsx';
 
 export const Header = () => {
   return (

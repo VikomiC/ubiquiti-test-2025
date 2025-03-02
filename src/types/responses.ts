@@ -1,4 +1,4 @@
-import { DeviceDataI } from './types.ts';
+import type { DeviceDataI } from './types';
 
 export interface DevicesResponseI {
   devices: DeviceDataI[];

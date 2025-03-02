@@ -1,2 +1,28 @@
 .root {
+  display: flex;
+  padding: 16px 32px;
+  flex-direction: column;
+  height: 100%;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  .searchHolder {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .devicesCount {
+    color: var(--text-color-secondary);
+  }
+}
+
+.content {
+  flex: 1;
+  height: 100%;
 }
