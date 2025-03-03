@@ -9,7 +9,7 @@ export const Header = () => {
         <HeaderLogo />
         <div className={styles.title}>Devices</div>
       </div>
-      <div className={styles.userBlock}>Author/Developer Name</div>
+      <div className={styles.userBlock}>Victor Ovchinnikov</div>
     </div>
   );
 };

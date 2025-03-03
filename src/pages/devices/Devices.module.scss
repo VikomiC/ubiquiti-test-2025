@@ -10,15 +10,54 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+}
 
-  .searchHolder {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.searchHolder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.devicesCount {
+  color: var(--text-color-secondary);
+}
+
+.filtersBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-color-primary-45);
+}
+
+.dataView {
+  display: flex;
+  align-items: center;
+}
+
+.iconHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  outline: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--background-color-icon-hover);
   }
 
-  .devicesCount {
-    color: var(--text-color-secondary);
+  &:focus {
+    border-color: var(--border-color-icon-focus);
+  }
+
+  &.selected {
+    color: var(--link-color);
+    background-color: var(--background-color-icon-active);
   }
 }
 

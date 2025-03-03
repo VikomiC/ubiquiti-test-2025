@@ -21,9 +21,18 @@
 
 .searchInput {
   padding: 8px 8px 8px 32px;
-  background-color: var(--background-color-search-input);
-  border: none;
+  background-color: var(--background-color-search-default);
+  border: 1px solid transparent;
   outline: none;
   border-radius: 4px;
   min-width: 320px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--background-color-search-hover);
+  }
+
+  &:focus {
+    border-color: var(--border-color-search-focus);
+  }
 }

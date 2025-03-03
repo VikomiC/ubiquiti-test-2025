@@ -34,6 +34,7 @@
   --link-color: #006fff;
   --link-color-hover: #0059cc;
   --text-color-primary: rgba(0, 0, 0, 0.85);
+  --text-color-primary-45: rgba(0, 0, 0, 0.45);
   --text-color-secondary: #bdbdbd;
   --text-color-header: #808893;
   --icon-color-search: #838691;
@@ -42,7 +43,14 @@
   --header-logo-color-focus: #50565e;
   --background-color: #fff;
   --background-color-header: #f4f5f6;
-  --background-color-search-input: #f6f6f8;
+  --background-color-search-default: #f6f6f8;
+  --background-color-search-hover: #ededf0;
+  --background-color-search-active: #f6f6f8;
+  --background-color-icon-hover: #f4f5f6;
+  --background-color-icon-active: #f9fafa;
+  --border-color-search-focus: var(--link-color);
+  --border-color-button-focus: var(--link-color);
+  --border-color-icon-focus: var(--link-color);
 }
 
 :root {

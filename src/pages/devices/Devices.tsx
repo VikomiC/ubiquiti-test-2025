@@ -1,23 +1,30 @@
-import { useAtomValue, useSetAtom } from 'jotai';
+import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { useCallback, useMemo } from 'react';
 
+import GridIcon from '@/assets/icons/grid.svg?react';
+import ListIcon from '@/assets/icons/list.svg?react';
 import { ErrorBlock } from '@/components/error-block/ErrorBlock';
 import { LoadingBlock } from '@/components/loading-block/LoadingBlock';
 import { SearchBar } from '@/components/search-bar/SearchBar';
 import { useDevicesFetch } from '@/pages/devices/hooks/useDevicesFetch';
 import {
   devicesAtom,
+  devicesDataViewAtom,
   devicesLoadErrorAtom,
   devicesLoadingAtom,
   triggerDevicesFetchAtom,
 } from '@/state/devices.state';
 
+import { Button } from '@/components/button/Button.tsx';
+import { DataViewE } from '@/types/enums.ts';
+import classnames from 'classnames';
 import styles from './Devices.module.scss';
 
 export const Devices = () => {
   const devices = useAtomValue(devicesAtom);
   const devicesLoading = useAtomValue(devicesLoadingAtom);
   const devicesLoadError = useAtomValue(devicesLoadErrorAtom);
+  const [devicesDataView, setDevicesDataView] = useAtom(devicesDataViewAtom);
   const setTriggerDevicesFetch = useSetAtom(triggerDevicesFetchAtom);
 
   useDevicesFetch();
@@ -46,7 +53,29 @@ export const Devices = () => {
             </div>
           )}
         </div>
-        <div className={styles.filtersBlock}>Filters</div>
+        <div className={styles.filtersBlock}>
+          <div className={styles.dataView}>
+            <button
+              className={classnames(styles.iconHolder, {
+                [styles.selected]: devicesDataView === DataViewE.List,
+              })}
+              onClick={() => setDevicesDataView(DataViewE.List)}
+            >
+              <ListIcon />
+            </button>
+            <button
+              className={classnames(styles.iconHolder, {
+                [styles.selected]: devicesDataView === DataViewE.Grid,
+              })}
+              onClick={() => setDevicesDataView(DataViewE.Grid)}
+            >
+              <GridIcon />
+            </button>
+          </div>
+          <div>
+            <Button>Filter</Button>
+          </div>
+        </div>
       </div>
       <div className={styles.content}>
         {devices === null && devicesLoadError !== null && (
