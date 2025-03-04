@@ -48,6 +48,7 @@
   --background-color-search-active: #f6f6f8;
   --background-color-icon-hover: #f4f5f6;
   --background-color-icon-active: #f9fafa;
+  --background-color-table-row: #f4f5f6;
   --border-color-search-focus: var(--link-color);
   --border-color-button-focus: var(--link-color);
   --border-color-icon-focus: var(--link-color);

@@ -7,7 +7,7 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import { type CSSProperties, type ReactNode, useRef } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 
@@ -18,6 +18,7 @@ interface VirtualizedTablePropsI<T> {
   data: T[];
   emptyState?: ReactNode;
   holderClassname?: string;
+  handleOnRowClick?: (row: Row<T>) => void;
 }
 
 export const TableEmptyStateWrapper = ({
@@ -81,6 +82,7 @@ export function VirtualizedTable<T>({
   data,
   emptyState,
   holderClassname,
+  handleOnRowClick,
 }: VirtualizedTablePropsI<T>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
@@ -115,7 +117,7 @@ export function VirtualizedTable<T>({
 
   return (
     <div
-      className={classNames(styles.tableHolder, holderClassname)}
+      className={classnames(styles.tableHolder, holderClassname)}
       ref={tableContainerRef}
     >
       <table
@@ -153,7 +155,7 @@ export function VirtualizedTable<T>({
                   >
                     <div
                       {...{
-                        className: classNames(
+                        className: classnames(
                           styles.headerCell,
                           header.column.getCanSort() ? styles.selectCursor : '',
                         ),
@@ -190,9 +192,17 @@ export function VirtualizedTable<T>({
                   data-index={virtualRow.index} //needed for dynamic row height measurement
                   ref={(node) => rowVirtualizer.measureElement(node)} //measure dynamic row height
                   key={row.id}
+                  className={classnames({
+                    [styles.clickableRow]: !!handleOnRowClick,
+                  })}
                   style={{
                     transform: `translateY(${virtualRow.start}px)`, //this should always be a `style` as it changes on scroll
                   }}
+                  onClick={
+                    handleOnRowClick ? () => handleOnRowClick(row) : undefined
+                  }
+                  onKeyDown={() => {}}
+                  tabIndex={virtualRow.index}
                 >
                   {row.getVisibleCells().map((cell, index) => {
                     const columnWidth = columnWidths[index];

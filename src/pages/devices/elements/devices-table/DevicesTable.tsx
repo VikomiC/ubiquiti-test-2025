@@ -1,4 +1,6 @@
-import type { ColumnDef } from '@tanstack/react-table';
+import type { ColumnDef, Row } from '@tanstack/react-table';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router';
 
 import tableStyles from '@/components/virtualized-table/VirtualizedTable.module.css';
 import { VirtualizedTable } from '@/components/virtualized-table/VirtualizedTable.tsx';
@@ -58,5 +60,20 @@ const columns: ColumnDef<DeviceDataI>[] = [
 ];
 
 export const DevicesTable = ({ devices }: DevicesTablePropsI) => {
-  return <VirtualizedTable columns={columns} data={devices} />;
+  const navigate = useNavigate();
+
+  const handleOnRowClick = useCallback(
+    (row: Row<DeviceDataI>) => {
+      navigate(`/${row.original.id}`);
+    },
+    [navigate],
+  );
+
+  return (
+    <VirtualizedTable
+      columns={columns}
+      data={devices}
+      handleOnRowClick={handleOnRowClick}
+    />
+  );
 };

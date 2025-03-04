@@ -66,7 +66,17 @@
   position: absolute;
   gap: 8px;
   width: 100%;
+  border-top: 1px solid transparent;
   border-bottom: 1px solid var(--border-table-bottom);
+
+  &:hover {
+    background-color: var(--background-color-table-row);
+  }
+
+  &:focus {
+    border-top-color: var(--link-color);
+    border-bottom-color: var(--link-color);
+  }
 }
 
 .table tbody tr td {
@@ -76,6 +86,10 @@
   white-space: wrap;
   flex: 1;
   padding: 4px 0;
+}
+
+.table tbody tr.clickableRow td {
+  cursor: pointer;
 }
 
 .table tbody tr td span {
