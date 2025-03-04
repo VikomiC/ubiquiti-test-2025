@@ -53,10 +53,14 @@
   --background-color-card-hover: #f4f5f6;
   --background-color-card-hover2: #f9fafa;
   --border-color-search-focus: var(--link-color);
-  --border-color-button-focus: var(--link-color);
+  --border-color-button: rgba(0, 0, 0, 0.06);
+  --border-color-button-focus: rgba(0, 0, 0, 0.18);
   --border-color-icon-focus: var(--link-color);
   --border-color-card: #ededf0;
   --border-table-bottom: #ededf0;
+  --box-shadow-color-button: rgba(0, 0, 0, 0.08);
+  --box-shadow-color-button-hover: rgba(0, 0, 0, 0.16);
+  --box-shadow-color-button-focus: rgba(0, 0, 0, 0.16);
 }
 
 :root {

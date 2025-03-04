@@ -4,11 +4,12 @@ import { useCallback, useMemo } from 'react';
 
 import GridIcon from '@/assets/icons/grid.svg?react';
 import ListIcon from '@/assets/icons/list.svg?react';
-import { Button } from '@/components/button/Button.tsx';
 import { ErrorBlock } from '@/components/error-block/ErrorBlock';
+import { Filter } from '@/components/filter/Filter';
 import { LoadingBlock } from '@/components/loading-block/LoadingBlock';
 import { SearchBar } from '@/components/search-bar/SearchBar';
-import { DevicesTable } from '@/pages/devices/elements/devices-table/DevicesTable.tsx';
+import { DevicesGrid } from '@/pages/devices/elements/devices-grid/DevicesGrid';
+import { DevicesTable } from '@/pages/devices/elements/devices-table/DevicesTable';
 import { useDevicesFetch } from '@/pages/devices/hooks/useDevicesFetch';
 import {
   devicesAtom,
@@ -17,9 +18,8 @@ import {
   devicesLoadingAtom,
   triggerDevicesFetchAtom,
 } from '@/state/devices.state';
-import { DataViewE } from '@/types/enums.ts';
+import { DataViewE } from '@/types/enums';
 
-import { DevicesGrid } from '@/pages/devices/elements/devices-grid/DevicesGrid.tsx';
 import styles from './Devices.module.scss';
 
 export const Devices = () => {
@@ -75,7 +75,7 @@ export const Devices = () => {
             </button>
           </div>
           <div>
-            <Button>Filter</Button>
+            <Filter>Filter</Filter>
           </div>
         </div>
       </div>

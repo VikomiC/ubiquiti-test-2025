@@ -1,17 +1,27 @@
 .root {
-  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--border-color-button);
+  box-shadow: 0 8px 24px var(--box-shadow-color-button);
   outline: none;
   border-radius: 4px;
-  color: var(--link-color);
-  padding: 6px 2px;
+  color: var(--text-color-primary-45);
+  padding: 4px;
+  font-size: 14px;
+  line-height: 20px;
   background-color: transparent;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
   &:hover {
-    color: var(--link-color-hover);
+    color: var(--text-color-primary);
+    box-shadow: 0 8px 24px var(--box-shadow-color-button-hover);
   }
 
   &:focus {
     border-color: var(--border-color-button-focus);
+    box-shadow: 0 8px 16px var(--box-shadow-color-button-hover);
   }
 }
