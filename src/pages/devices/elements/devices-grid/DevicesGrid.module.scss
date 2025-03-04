@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  overflow: auto;
+  position: relative;
+  height: 100%;
+}

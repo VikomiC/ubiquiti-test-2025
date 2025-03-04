@@ -94,7 +94,7 @@ export function VirtualizedTable<T>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    debugTable: true,
+    // debugTable: true,
     defaultColumn: {
       size: Number.MAX_SAFE_INTEGER,
     },

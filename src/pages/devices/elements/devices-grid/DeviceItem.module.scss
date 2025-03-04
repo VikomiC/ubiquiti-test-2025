@@ -1,0 +1,75 @@
+.root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-card);
+  min-width: 220px;
+  max-width: 460px;
+  cursor: pointer;
+}
+
+.imageHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  background-color: var(--background-color-card);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  border-radius: 8px 8px 0 0;
+}
+
+.lineBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 4px;
+  background-color: var(--background-color);
+  padding: 2px 4px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--link-color);
+}
+
+.detailsBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px;
+  min-height: 56px;
+  background-color: transparent;
+  border-radius: 0 0 8px 8px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  .name {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--text-color-primary);
+  }
+
+  .shortnames {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--text-color-primary-45);
+  }
+}
+
+.root:hover {
+  .imageHolder{
+    background-color: var(--background-color-card-hover);
+  }
+
+  .detailsBlock {
+    background-color: var(--background-color-card-hover2);
+  }
+}
+
+.root:focus {
+  outline: none;
+  border-color: var(--border-color-icon-focus);
+}

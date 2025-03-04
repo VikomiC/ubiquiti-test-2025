@@ -19,6 +19,7 @@ import {
 } from '@/state/devices.state';
 import { DataViewE } from '@/types/enums.ts';
 
+import { DevicesGrid } from '@/pages/devices/elements/devices-grid/DevicesGrid.tsx';
 import styles from './Devices.module.scss';
 
 export const Devices = () => {
@@ -89,7 +90,9 @@ export const Devices = () => {
         {devices !== null && devicesDataView === DataViewE.List && (
           <DevicesTable devices={devices} />
         )}
-        {/*{devices !== null && devicesDataView === DataViewE.Grid && (<DevicesTable devices={devices} />)}*/}
+        {devices !== null && devicesDataView === DataViewE.Grid && (
+          <DevicesGrid devices={devices} />
+        )}
       </div>
     </div>
   );
