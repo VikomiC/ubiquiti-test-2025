@@ -1,11 +1,14 @@
+import classnames from 'classnames';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { useCallback, useMemo } from 'react';
 
 import GridIcon from '@/assets/icons/grid.svg?react';
 import ListIcon from '@/assets/icons/list.svg?react';
+import { Button } from '@/components/button/Button.tsx';
 import { ErrorBlock } from '@/components/error-block/ErrorBlock';
 import { LoadingBlock } from '@/components/loading-block/LoadingBlock';
 import { SearchBar } from '@/components/search-bar/SearchBar';
+import { DevicesTable } from '@/pages/devices/elements/devices-table/DevicesTable.tsx';
 import { useDevicesFetch } from '@/pages/devices/hooks/useDevicesFetch';
 import {
   devicesAtom,
@@ -14,10 +17,8 @@ import {
   devicesLoadingAtom,
   triggerDevicesFetchAtom,
 } from '@/state/devices.state';
-
-import { Button } from '@/components/button/Button.tsx';
 import { DataViewE } from '@/types/enums.ts';
-import classnames from 'classnames';
+
 import styles from './Devices.module.scss';
 
 export const Devices = () => {
@@ -85,6 +86,10 @@ export const Devices = () => {
           />
         )}
         {devices === null && devicesLoading && <LoadingBlock />}
+        {devices !== null && devicesDataView === DataViewE.List && (
+          <DevicesTable devices={devices} />
+        )}
+        {/*{devices !== null && devicesDataView === DataViewE.Grid && (<DevicesTable devices={devices} />)}*/}
       </div>
     </div>
   );

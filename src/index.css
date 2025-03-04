@@ -51,6 +51,7 @@
   --border-color-search-focus: var(--link-color);
   --border-color-button-focus: var(--link-color);
   --border-color-icon-focus: var(--link-color);
+  --border-table-bottom: #ededf0;
 }
 
 :root {

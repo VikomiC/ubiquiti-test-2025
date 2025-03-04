@@ -1,0 +1,87 @@
+.tableHolder {
+  overflow: auto;
+  position: relative;
+  height: 100%;
+}
+
+.table {
+  display: grid;
+  width: 100%;
+}
+
+.table thead {
+  display: grid;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table .headerCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+.table .headerTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color-primary);
+  line-height: 20px;
+}
+
+.table .sortHandle {
+  font-size: 12px;
+}
+
+.table .selectCursor {
+  cursor: pointer;
+}
+
+.table thead tr {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-table-bottom);
+}
+
+.table thead tr th {
+  display: flex;
+  flex: 1;
+  padding: 8px 0;
+}
+
+.table tbody {
+  display: grid;
+  position: relative;
+}
+
+.table tbody tr {
+  display: flex;
+  position: absolute;
+  gap: 8px;
+  width: 100%;
+  border-bottom: 1px solid var(--border-table-bottom);
+}
+
+.table tbody tr td {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  white-space: wrap;
+  flex: 1;
+  padding: 4px 0;
+}
+
+.table tbody tr td span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--text-color-primary-45);
+}

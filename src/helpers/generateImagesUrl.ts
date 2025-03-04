@@ -1,15 +1,15 @@
 import { config } from '@/config';
 
-interface ImagesUrlPropsI {
+export interface ImagesUrlPropsI {
   id: string;
   imagesDefault: string;
   size: string;
 }
 
 export function generateImagesUrl(props: ImagesUrlPropsI) {
-  const imagesUrl = config.imagesUrl;
+  let imagesUrl = config.imagesUrl.slice();
   for (const [key, value] of Object.entries(props)) {
-    imagesUrl.replace(`$${key}`, value);
+    imagesUrl = imagesUrl.replace(`{${key}}`, value);
   }
   return imagesUrl;
 }
