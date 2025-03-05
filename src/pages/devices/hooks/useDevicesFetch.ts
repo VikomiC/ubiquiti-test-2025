@@ -2,12 +2,7 @@ import { useAtomValue, useSetAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
 
 import { getAllDevices } from '@/network/public.api';
-import {
-  devicesAtom,
-  devicesLoadErrorAtom,
-  devicesLoadingAtom,
-  triggerDevicesFetchAtom,
-} from '@/state/devices.state';
+import { devicesAtom, devicesLoadErrorAtom, devicesLoadingAtom, triggerDevicesFetchAtom } from '@/state/devices.state';
 
 export function useDevicesFetch() {
   const setDevices = useSetAtom(devicesAtom);

@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router';
 
 import { Header } from '@/components/header/Header';
-import { DevicesLayout } from '@/pages/_layouts/devices-layout/DevicesLayout.tsx';
+import { DevicesLayout } from '@/pages/_layouts/devices-layout/DevicesLayout';
 import { ViewDevice } from '@/pages/device-view/ViewDevice';
 import { Devices } from '@/pages/devices/Devices';
 

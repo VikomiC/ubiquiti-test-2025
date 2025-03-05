@@ -1,7 +1,7 @@
 import { Search } from 'lucide-react';
 import type { ChangeEvent, SetStateAction } from 'react';
 
-import type { SetAtom } from '@/types/types.ts';
+import type { SetAtom } from '@/types/types';
 
 import styles from './SearchBar.module.scss';
 
@@ -11,11 +11,7 @@ interface SearchBarPropsI {
   setValue: SetAtom<[SetStateAction<string>], void>;
 }
 
-export const SearchBar = ({
-  placeholder,
-  value,
-  setValue,
-}: SearchBarPropsI) => {
+export const SearchBar = ({ placeholder, value, setValue }: SearchBarPropsI) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
   };

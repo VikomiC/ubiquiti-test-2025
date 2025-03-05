@@ -10,7 +10,7 @@ import { LoadingBlock } from '@/components/loading-block/LoadingBlock';
 import { SearchBar } from '@/components/search-bar/SearchBar';
 import { DevicesGrid } from '@/pages/devices/elements/devices-grid/DevicesGrid';
 import { DevicesTable } from '@/pages/devices/elements/devices-table/DevicesTable';
-import { PopupContent } from '@/pages/devices/elements/popup-content/PopupContent.tsx';
+import { PopupContent } from '@/pages/devices/elements/popup-content/PopupContent';
 import {
   devicesDataViewAtom,
   devicesLoadErrorAtom,

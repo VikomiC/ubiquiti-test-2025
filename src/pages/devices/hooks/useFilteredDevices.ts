@@ -1,12 +1,7 @@
 import { useAtomValue, useSetAtom } from 'jotai';
 import { useEffect } from 'react';
 
-import {
-  devicesAtom,
-  filteredDevicesAtom,
-  filteredLinesAtom,
-  searchValueAtom,
-} from '@/state/devices.state.ts';
+import { devicesAtom, filteredDevicesAtom, filteredLinesAtom, searchValueAtom } from '@/state/devices.state.ts';
 
 export function useFilteredDevices() {
   const devices = useAtomValue(devicesAtom);
@@ -27,19 +22,14 @@ export function useFilteredDevices() {
 
     let devicesCopy = devices.slice();
     if (filteredLines.length > 0) {
-      devicesCopy = devicesCopy.filter((device) =>
-        filteredLines.includes(device.line.name),
-      );
+      devicesCopy = devicesCopy.filter((device) => filteredLines.includes(device.line.name));
     }
     if (searchValue !== '') {
       const searchValueLC = searchValue.toLowerCase();
       devicesCopy = devicesCopy.filter((device) => {
         const productNameLC = device.product.name.toLowerCase();
         const lineNameLC = device.line.name.toLowerCase();
-        return (
-          productNameLC.includes(searchValueLC) ||
-          lineNameLC.includes(searchValueLC)
-        );
+        return productNameLC.includes(searchValueLC) || lineNameLC.includes(searchValueLC);
       });
     }
 

@@ -2,13 +2,10 @@ import type { ColumnDef, Row } from '@tanstack/react-table';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router';
 
+import { VirtualizedTable } from '@/components/virtualized-table/VirtualizedTable';
 import tableStyles from '@/components/virtualized-table/VirtualizedTable.module.css';
-import { VirtualizedTable } from '@/components/virtualized-table/VirtualizedTable.tsx';
-import {
-  type ImagesUrlPropsI,
-  generateImagesUrl,
-} from '@/helpers/generateImagesUrl.ts';
-import type { DeviceDataI } from '@/types/types.ts';
+import { type ImagesUrlPropsI, generateImagesUrl } from '@/helpers/generateImagesUrl';
+import type { DeviceDataI } from '@/types/types';
 
 import styles from './DevicesTable.module.scss';
 
@@ -71,11 +68,5 @@ export const DevicesTable = ({ devices }: DevicesTablePropsI) => {
     [navigate],
   );
 
-  return (
-    <VirtualizedTable
-      columns={columns}
-      data={devices}
-      handleOnRowClick={handleOnRowClick}
-    />
-  );
+  return <VirtualizedTable columns={columns} data={devices} handleOnRowClick={handleOnRowClick} />;
 };

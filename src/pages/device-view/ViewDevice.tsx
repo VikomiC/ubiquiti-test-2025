@@ -4,11 +4,11 @@ import { useNavigate, useParams } from 'react-router';
 
 import LeftIcon from '@/assets/icons/left.svg?react';
 import RightIcon from '@/assets/icons/right.svg?react';
-import { Button } from '@/components/button/Button.tsx';
-import { DeviceBlock } from '@/pages/device-view/elements/device-block/DeviceBlock.tsx';
-import { DeviceNotFound } from '@/pages/device-view/elements/device-not-found/DeviceNotFound.tsx';
-import { filteredDevicesAtom } from '@/state/devices.state.ts';
-import type { DeviceDataI } from '@/types/types.ts';
+import { Button } from '@/components/button/Button';
+import { DeviceBlock } from '@/pages/device-view/elements/device-block/DeviceBlock';
+import { DeviceNotFound } from '@/pages/device-view/elements/device-not-found/DeviceNotFound';
+import { filteredDevicesAtom } from '@/state/devices.state';
+import type { DeviceDataI } from '@/types/types';
 
 import styles from './ViewDevice.module.scss';
 

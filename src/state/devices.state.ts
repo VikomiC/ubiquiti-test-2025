@@ -1,6 +1,6 @@
 import { atom } from 'jotai';
 
-import { DataViewE } from '@/types/enums.ts';
+import { DataViewE } from '@/types/enums';
 import type { DeviceDataI } from '@/types/types';
 
 export const devicesAtom = atom<DeviceDataI[] | null>(null);

@@ -1,6 +1,6 @@
-import type { DeviceDataI } from '@/types/types.ts';
+import { DeviceItem } from '@/pages/devices/elements/devices-grid/DeviceItem';
+import type { DeviceDataI } from '@/types/types';
 
-import { DeviceItem } from '@/pages/devices/elements/devices-grid/DeviceItem.tsx';
 import styles from './DevicesGrid.module.scss';
 
 interface DevicesGridPropsI {

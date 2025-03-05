@@ -21,10 +21,7 @@ interface VirtualizedTablePropsI<T> {
   handleOnRowClick?: (row: Row<T>) => void;
 }
 
-export const TableEmptyStateWrapper = ({
-  children,
-  style,
-}: { children: ReactNode; style?: CSSProperties }) => (
+export const TableEmptyStateWrapper = ({ children, style }: { children: ReactNode; style?: CSSProperties }) => (
   <tbody style={{ height: '100%' }}>
     <tr style={{ height: '100%' }}>
       <td
@@ -43,14 +40,9 @@ export const TableEmptyStateWrapper = ({
     </tr>
   </tbody>
 );
-const defaultEmptyState = (
-  <TableEmptyStateWrapper>No data here</TableEmptyStateWrapper>
-);
+const defaultEmptyState = <TableEmptyStateWrapper>No data here</TableEmptyStateWrapper>;
 
-function calculateFlexibleColumnWidths<T>(
-  containerWidth: number,
-  columns: ColumnDef<T>[],
-) {
+function calculateFlexibleColumnWidths<T>(containerWidth: number, columns: ColumnDef<T>[]) {
   const MOBILE_BREAKPOINT = 768;
   const isMobile = containerWidth <= MOBILE_BREAKPOINT;
   if (isMobile) {
@@ -63,13 +55,10 @@ function calculateFlexibleColumnWidths<T>(
     return size !== Number.MAX_SAFE_INTEGER ? sum + size : sum;
   }, 0);
 
-  const flexibleColumns = columns.filter(
-    (col) => (col.size as number) === Number.MAX_SAFE_INTEGER,
-  ).length;
+  const flexibleColumns = columns.filter((col) => (col.size as number) === Number.MAX_SAFE_INTEGER).length;
 
   const remainingWidth = Math.max(0, containerWidth - totalFixedWidth);
-  const flexibleColumnWidth =
-    flexibleColumns > 0 ? Math.floor(remainingWidth / flexibleColumns) : 0;
+  const flexibleColumnWidth = flexibleColumns > 0 ? Math.floor(remainingWidth / flexibleColumns) : 0;
 
   return columns.map((col) => {
     const size = col.size as number;
@@ -108,18 +97,14 @@ export function VirtualizedTable<T>({
     getScrollElement: () => tableContainerRef.current,
     // Measure dynamic row height, except in firefox because it measures table border height incorrectly
     measureElement:
-      typeof window !== 'undefined' &&
-      navigator.userAgent.indexOf('Firefox') === -1
+      typeof window !== 'undefined' && navigator.userAgent.indexOf('Firefox') === -1
         ? (element) => element?.getBoundingClientRect().height
         : undefined,
     overscan: 5,
   });
 
   return (
-    <div
-      className={classnames(styles.tableHolder, holderClassname)}
-      ref={tableContainerRef}
-    >
+    <div className={classnames(styles.tableHolder, holderClassname)} ref={tableContainerRef}>
       <table
         className={styles.table}
         ref={ref}
@@ -155,20 +140,12 @@ export function VirtualizedTable<T>({
                   >
                     <div
                       {...{
-                        className: classnames(
-                          styles.headerCell,
-                          header.column.getCanSort() ? styles.selectCursor : '',
-                        ),
+                        className: classnames(styles.headerCell, header.column.getCanSort() ? styles.selectCursor : ''),
                         onClick: header.column.getToggleSortingHandler(),
                       }}
                     >
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext(),
-                      )}
-                      {sortHandler && (
-                        <span className={styles.sortHandle}>{sortHandler}</span>
-                      )}
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                      {sortHandler && <span className={styles.sortHandle}>{sortHandler}</span>}
                     </div>
                   </th>
                 );
@@ -198,9 +175,7 @@ export function VirtualizedTable<T>({
                   style={{
                     transform: `translateY(${virtualRow.start}px)`, //this should always be a `style` as it changes on scroll
                   }}
-                  onClick={
-                    handleOnRowClick ? () => handleOnRowClick(row) : undefined
-                  }
+                  onClick={handleOnRowClick ? () => handleOnRowClick(row) : undefined}
                   onKeyDown={() => {}}
                   tabIndex={virtualRow.index}
                 >
@@ -215,10 +190,7 @@ export function VirtualizedTable<T>({
                           maxWidth: columnWidth,
                         }}
                       >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext(),
-                        )}
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </td>
                     );
                   })}

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { generateImagesUrl } from '@/helpers/generateImagesUrl.ts';
-import type { DeviceDataI } from '@/types/types.ts';
+import { generateImagesUrl } from '@/helpers/generateImagesUrl';
+import type { DeviceDataI } from '@/types/types';
 
 import styles from './DeviceBlock.module.scss';
 

@@ -46,11 +46,7 @@
   display: flex;
   width: 100%;
   gap: 8px;
-  background: linear-gradient(
-    180deg,
-    var(--background-color) 25px,
-    rgba(255, 255, 255, 0.1)
-  );
+  background: linear-gradient(180deg, var(--background-color) 25px, rgba(255, 255, 255, 0.1));
   backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--border-table-bottom);
 }
