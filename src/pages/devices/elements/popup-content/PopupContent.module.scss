@@ -1,0 +1,55 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  color: var(--text-color-primary);
+  white-space: nowrap;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: nowrap;
+
+  input {
+    cursor: pointer;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--text-color-primary-65);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+
+
+.footer {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-color-danger);
+  transition: color 0.3s ease;
+  cursor: pointer;
+
+  &.disabled {
+    color: var(--text-color-danger-disabled);
+    cursor: default;
+    user-select: none;
+    pointer-events: none;
+  }
+}

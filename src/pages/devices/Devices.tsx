@@ -10,6 +10,7 @@ import { LoadingBlock } from '@/components/loading-block/LoadingBlock';
 import { SearchBar } from '@/components/search-bar/SearchBar';
 import { DevicesGrid } from '@/pages/devices/elements/devices-grid/DevicesGrid';
 import { DevicesTable } from '@/pages/devices/elements/devices-table/DevicesTable';
+import { PopupContent } from '@/pages/devices/elements/popup-content/PopupContent.tsx';
 import {
   devicesDataViewAtom,
   devicesLoadErrorAtom,
@@ -47,11 +48,7 @@ export const Devices = () => {
     <>
       <div className={styles.heading}>
         <div className={styles.searchHolder}>
-          <SearchBar
-            placeholder="Search"
-            value={searchValue}
-            setValue={setSearchValue}
-          />
+          <SearchBar placeholder="Search" value={searchValue} setValue={setSearchValue} />
           {devices != null && (
             <div className={styles.devicesCount}>
               {devices.length} Device{isPlural ? 's' : ''}
@@ -77,25 +74,16 @@ export const Devices = () => {
               <GridIcon />
             </button>
           </div>
-          <div>
-            <Filter>Filter</Filter>
-          </div>
+          <Filter popupContent={<PopupContent />} />
         </div>
       </div>
       <div className={styles.content}>
         {devices === null && devicesLoadError !== null && (
-          <ErrorBlock
-            error={devicesLoadError}
-            reloadCallback={handleDataReload}
-          />
+          <ErrorBlock error={devicesLoadError} reloadCallback={handleDataReload} />
         )}
         {devices === null && devicesLoading && <LoadingBlock />}
-        {devices !== null && devicesDataView === DataViewE.List && (
-          <DevicesTable devices={devices} />
-        )}
-        {devices !== null && devicesDataView === DataViewE.Grid && (
-          <DevicesGrid devices={devices} />
-        )}
+        {devices !== null && devicesDataView === DataViewE.List && <DevicesTable devices={devices} />}
+        {devices !== null && devicesDataView === DataViewE.Grid && <DevicesGrid devices={devices} />}
       </div>
     </>
   );

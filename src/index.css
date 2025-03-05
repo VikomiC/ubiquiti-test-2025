@@ -35,6 +35,9 @@
   --link-color-hover: #0059cc;
   --text-color-primary: rgba(0, 0, 0, 0.85);
   --text-color-primary-45: rgba(0, 0, 0, 0.45);
+  --text-color-primary-65: rgba(0, 0, 0, 0.65);
+  --text-color-danger: #f03a3e;
+  --text-color-danger-disabled: #f9b0b2;
   --text-color-secondary: #bdbdbd;
   --text-color-header: #808893;
   --icon-color-search: #838691;
@@ -46,6 +49,7 @@
   --background-color-search-default: #f6f6f8;
   --background-color-search-hover: #ededf0;
   --background-color-search-active: #f6f6f8;
+  --background-color-filter-hover: #f4f5f6;
   --background-color-icon-hover: #f4f5f6;
   --background-color-icon-active: #f9fafa;
   --background-color-table-row: #f4f5f6;
@@ -55,12 +59,14 @@
   --border-color-search-focus: var(--link-color);
   --border-color-button: rgba(0, 0, 0, 0.06);
   --border-color-button-focus: rgba(0, 0, 0, 0.18);
+  --border-color-filter-focus: var(--link-color);
   --border-color-icon-focus: var(--link-color);
   --border-color-card: #ededf0;
   --border-table-bottom: #ededf0;
   --box-shadow-color-button: rgba(0, 0, 0, 0.08);
   --box-shadow-color-button-hover: rgba(0, 0, 0, 0.16);
   --box-shadow-color-button-focus: rgba(0, 0, 0, 0.16);
+  --box-shadow-color-popup: rgba(28, 30, 45, 0.2);
 }
 
 :root {

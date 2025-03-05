@@ -1,17 +1,44 @@
 .root {
+  position: relative;
+}
+
+.button {
   border: 1px solid transparent;
   outline: none;
   border-radius: 4px;
-  color: var(--link-color);
-  padding: 6px 2px;
+  color: var(--text-color-primary-45);
+  padding: 6px;
   background-color: transparent;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 
   &:hover {
-    color: var(--link-color-hover);
+    background-color: var(--background-color-filter-hover);
   }
 
   &:focus {
-    border-color: var(--border-color-button-focus);
+    border-color: var(--border-color-filter-focus);
+  }
+
+  &.open {
+    background-color: var(--background-color-filter-hover);
+    color: var(--link-color);
+  }
+}
+
+.optionsPopup {
+  position: absolute;
+  display: none;
+  right: 0;
+  width: auto;
+  background-color: var(--background-color);
+  box-shadow: 0 16px 32px var(--box-shadow-color-popup);
+  overflow: visible;
+  z-index: 100;
+  padding: 16px;
+  border-radius: 8px;
+
+  &.open {
+    display: block;
   }
 }
