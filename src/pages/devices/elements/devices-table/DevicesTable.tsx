@@ -48,6 +48,7 @@ const columns: ColumnDef<DeviceDataI>[] = [
       return <span title={deviceName}>{deviceName}</span>;
     },
     size: 400,
+    enableSorting: false,
   },
   {
     accessorKey: 'product.name',
@@ -56,6 +57,7 @@ const columns: ColumnDef<DeviceDataI>[] = [
       const productName = props.getValue() as string;
       return <span title={productName}>{productName}</span>;
     },
+    enableSorting: false,
   },
 ];
 

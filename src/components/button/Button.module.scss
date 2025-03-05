@@ -24,4 +24,11 @@
     border-color: var(--border-color-button-focus);
     box-shadow: 0 8px 16px var(--box-shadow-color-button-hover);
   }
+
+  &:disabled {
+    cursor: pointer;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.5;
+  }
 }

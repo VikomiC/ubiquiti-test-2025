@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router';
 
+import { generateImagesUrl } from '@/helpers/generateImagesUrl.ts';
 import type { DeviceDataI } from '@/types/types.ts';
 
-import { generateImagesUrl } from '@/helpers/generateImagesUrl.ts';
 import styles from './DeviceItem.module.scss';
 
 interface DeviceItemPropsI {
@@ -19,12 +19,7 @@ export const DeviceItem = ({ device, tabIndex }: DeviceItemPropsI) => {
   }, [navigate, device]);
 
   return (
-    <div
-      className={styles.root}
-      onClick={handleClick}
-      onKeyDown={() => {}}
-      tabIndex={tabIndex}
-    >
+    <div className={styles.root} onClick={handleClick} onKeyDown={() => {}} tabIndex={tabIndex}>
       <div className={styles.imageHolder}>
         <div className={styles.lineBadge}>{device.line.name}</div>
         <img

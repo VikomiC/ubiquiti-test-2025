@@ -1,3 +1,5 @@
+export type SetAtom<Args extends unknown[], Result> = (...args: Args) => Result;
+
 export interface LineDataI {
   id: string;
   name: string;
@@ -19,10 +21,20 @@ export interface ImagesDataI {
   topology: string;
 }
 
+export interface UnifiDataI {
+  adoptability: string;
+  network: {
+    ethernetMaxSpeedMegabitsPerSecond: number;
+    numberOfPorts: number;
+  };
+}
+
 export interface DeviceDataI {
   id: string;
   images: ImagesDataI;
   line: LineDataI;
   product: ProductDataI;
+  sku: string;
   shortnames: string[];
+  unifi?: UnifiDataI;
 }

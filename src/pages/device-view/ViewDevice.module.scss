@@ -1,17 +1,9 @@
-.root {
-  display: flex;
-  padding: 18px 32px;
-  flex-direction: column;
-  height: calc(100% - 50px);
-  box-sizing: border-box;
-}
-
 .heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding-bottom: 18px;
+  padding: 18px 0;
 }
 
 .navButtons {

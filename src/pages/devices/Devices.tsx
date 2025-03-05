@@ -10,12 +10,12 @@ import { LoadingBlock } from '@/components/loading-block/LoadingBlock';
 import { SearchBar } from '@/components/search-bar/SearchBar';
 import { DevicesGrid } from '@/pages/devices/elements/devices-grid/DevicesGrid';
 import { DevicesTable } from '@/pages/devices/elements/devices-table/DevicesTable';
-import { useDevicesFetch } from '@/pages/devices/hooks/useDevicesFetch';
 import {
-  devicesAtom,
   devicesDataViewAtom,
   devicesLoadErrorAtom,
   devicesLoadingAtom,
+  filteredDevicesAtom,
+  searchValueAtom,
   triggerDevicesFetchAtom,
 } from '@/state/devices.state';
 import { DataViewE } from '@/types/enums';
@@ -23,13 +23,12 @@ import { DataViewE } from '@/types/enums';
 import styles from './Devices.module.scss';
 
 export const Devices = () => {
-  const devices = useAtomValue(devicesAtom);
+  const devices = useAtomValue(filteredDevicesAtom);
   const devicesLoading = useAtomValue(devicesLoadingAtom);
   const devicesLoadError = useAtomValue(devicesLoadErrorAtom);
   const [devicesDataView, setDevicesDataView] = useAtom(devicesDataViewAtom);
+  const [searchValue, setSearchValue] = useAtom(searchValueAtom);
   const setTriggerDevicesFetch = useSetAtom(triggerDevicesFetchAtom);
-
-  useDevicesFetch();
 
   const handleDataReload = useCallback(() => {
     setTriggerDevicesFetch((prevState) => !prevState);
@@ -45,10 +44,14 @@ export const Devices = () => {
   }, [devices]);
 
   return (
-    <div className={styles.root}>
+    <>
       <div className={styles.heading}>
         <div className={styles.searchHolder}>
-          <SearchBar placeholder="Search" />
+          <SearchBar
+            placeholder="Search"
+            value={searchValue}
+            setValue={setSearchValue}
+          />
           {devices != null && (
             <div className={styles.devicesCount}>
               {devices.length} Device{isPlural ? 's' : ''}
@@ -94,6 +97,6 @@ export const Devices = () => {
           <DevicesGrid devices={devices} />
         )}
       </div>
-    </div>
+    </>
   );
 };
