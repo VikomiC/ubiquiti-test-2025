@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.inputHolder {
+  position: relative;
+}
+
 .iconHolder {
   position: absolute;
   top: 0;
@@ -35,4 +39,56 @@
   &:focus {
     border-color: var(--border-color-search-focus);
   }
+}
+
+.dropdown {
+  position: absolute;
+  display: none;
+  left: 0;
+  right: 0;
+  width: auto;
+  background-color: var(--background-color);
+  box-shadow: 0 16px 32px var(--box-shadow-color-dropdown);
+  padding: 8px 0;
+  overflow: visible;
+  z-index: 100;
+  border-radius: 8px;
+  max-height: 120px;
+  overflow-y: auto;
+
+  &.open {
+    display: block;
+  }
+}
+
+.suggestedResult {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--background-color-suggested-item-hover);
+  }
+
+  .productName {
+    color: var(--text-color-suggested-item);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .productLine {
+    color: var(--text-color-suggested-item);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+}
+
+.highlightedMatch {
+  font-weight: 700;
+  text-decoration: underline;
 }

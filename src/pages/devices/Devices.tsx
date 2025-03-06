@@ -48,7 +48,7 @@ export const Devices = () => {
     <>
       <div className={styles.heading}>
         <div className={styles.searchHolder}>
-          <SearchBar placeholder="Search" value={searchValue} setValue={setSearchValue} />
+          <SearchBar placeholder="Search" value={searchValue} setValue={setSearchValue} filteredDevices={devices} />
           {devices != null && (
             <div className={styles.devicesCount}>
               {devices.length} Device{isPlural ? 's' : ''}
