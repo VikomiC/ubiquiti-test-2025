@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router';
 
-import { generateImagesUrl } from '@/helpers/generateImagesUrl';
+import { ImageWithFallback } from '@/components/image-with-fallback/ImageWithFallback';
 import type { DeviceDataI } from '@/types/types';
 
 import styles from './DeviceItem.module.scss';
@@ -22,14 +22,16 @@ export const DeviceItem = ({ device, tabIndex }: DeviceItemPropsI) => {
     <div className={styles.root} onClick={handleClick} onKeyDown={() => {}} tabIndex={tabIndex}>
       <div className={styles.imageHolder}>
         <div className={styles.lineBadge}>{device.line.name}</div>
-        <img
-          src={generateImagesUrl({
+        <ImageWithFallback
+          urlProps={{
             id: device.id,
             imagesDefault: device.images.default,
             size: '84',
-          })}
-          alt={device.product.name}
+          }}
           className={styles.image}
+          title={device.product.name}
+          width={84}
+          height={84}
         />
       </div>
       <div className={styles.detailsBlock}>

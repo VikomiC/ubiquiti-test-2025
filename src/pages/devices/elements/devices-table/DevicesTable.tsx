@@ -2,9 +2,10 @@ import type { ColumnDef, Row } from '@tanstack/react-table';
 import { useCallback } from 'react';
 import { useNavigate } from 'react-router';
 
+import { ImageWithFallback } from '@/components/image-with-fallback/ImageWithFallback.tsx';
 import { VirtualizedTable } from '@/components/virtualized-table/VirtualizedTable';
 import tableStyles from '@/components/virtualized-table/VirtualizedTable.module.css';
-import { type ImagesUrlPropsI, generateImagesUrl } from '@/helpers/generateImagesUrl';
+import type { ImagesUrlPropsI } from '@/helpers/generateImagesUrl';
 import type { DeviceDataI } from '@/types/types';
 
 import styles from './DevicesTable.module.scss';
@@ -26,10 +27,12 @@ const columns: ColumnDef<DeviceDataI>[] = [
       const imageUrlProps = props.getValue() as ImagesUrlPropsI;
       return (
         <div className={styles.imageHolder}>
-          <img
-            src={generateImagesUrl(imageUrlProps)}
-            alt={props.cell.row.original.product.name}
+          <ImageWithFallback
+            urlProps={imageUrlProps}
             className={styles.image}
+            title={props.cell.row.original.product.name}
+            width={20}
+            height={20}
           />
         </div>
       );

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { generateImagesUrl } from '@/helpers/generateImagesUrl';
+import { ImageWithFallback } from '@/components/image-with-fallback/ImageWithFallback.tsx';
 import type { DeviceDataI } from '@/types/types';
 
 import styles from './DeviceBlock.module.scss';
@@ -25,14 +25,16 @@ export const DeviceBlock = ({ device }: DeviceBlockPropsI) => {
     <div className={styles.root}>
       <div className={styles.deviceData}>
         <div className={styles.imageBlock}>
-          <img
-            src={generateImagesUrl({
+          <ImageWithFallback
+            urlProps={{
               id: device.id,
               imagesDefault: device.images.default,
               size: '260',
-            })}
-            alt={device.product.name}
+            }}
             className={styles.image}
+            title={device.product.name}
+            width={260}
+            height={260}
           />
         </div>
         <div className={styles.detailsBlock}>
